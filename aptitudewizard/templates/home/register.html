@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 50px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 20px; /* Increased gap between form groups */
+    }
+    .form-group input {
+      border-radius: 30px; /* Increased input box border radius */
+      padding: 12px; /* Increased input box padding */
+      font-size: 16px; /* Increased input box font size */
+    }
+    .form-group input:focus {
+      box-shadow: none;
+    }
+    .btn-primary {
+      border-radius: 30px; /* Increased button border radius */
+    }
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+    .btn-primary:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+    .form-group label {
+      position: absolute;
+      top: -15px; /* Increased label position */
+      left: 20px;
+      background-color: #fff;
+      padding: 0 5px;
+      color: #777;
+      font-size: 14px; /* Increased label font size */
+      font-weight: bold; /* Bold labels */
+      transition: all 0.3s ease-in-out;
+    }
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label {
+      top: -30px; /* Increased label position when input is focused or not empty */
+      font-size: 12px; /* Decreased label font size when input is focused or not empty */
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="form-container">
+        <h2>Register</h2>
+      <form col-6 mx-auto card p-3 shadow-lg method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+        <div class="alert alert-warning" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <br><br>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" name="first_name" id="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" name="last_name" id="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" id="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+
+        <p>Already Have an account? <a href="/login/" style="color: blue;"><strong>Login</strong></a></p>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

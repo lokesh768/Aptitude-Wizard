@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Card</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .card {
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 50px;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Style for the clickable card */
+    .clickable-card {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 50px;
+      border: 1px solid #007bff; /* Blue border color */
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer; /* Change cursor to pointer */
+      transition: all 0.3s ease; /* Add smooth transition */
+    }
+    .clickable-card:hover {
+      background-color: #007bff; /* Change background color on hover */
+      color: #fff; /* Change text color on hover */
+    }
+
+    /* Style for the Aptitude Wizard section */
+    .aptitude-wizard {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .aptitude-wizard h3 {
+      color: #007bff; /* Blue color for headings */
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .aptitude-wizard p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Animation for the Aptitude Wizard section */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .aptitude-wizard.animated {
+      animation: slideInLeft 0.5s ease forwards;
+    }
+  </style>
+</head>
+<body>
+<!-- Aptitude Wizard -->
+<div class="container aptitude-wizard animated">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Aptitude Wizard</h3>
+      <p>Welcome to the Aptitude Wizard! Sharpen your skills and ace your tests with our interactive practice sessions. Let's make learning fun and rewarding!</p>
+    </div>
+  </div>
+</div>
+
+
+</a> -->
+<!-- Question Cards -->
+{% for q in question %}
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Question {{forloop.counter}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{q.question}}</h5>
+      <form id="questionForm{{forloop.counter}}">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="option{{forloop.counter}}" id="option1{{forloop.counter}}" value="a">
+          <label class="form-check-label" for="option1{{forloop.counter}}">
+            {{q.option_1}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="option{{forloop.counter}}" id="option2{{forloop.counter}}" value="b">
+          <label class="form-check-label" for="option2{{forloop.counter}}">
+            {{q.option_2}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="option{{forloop.counter}}" id="option3{{forloop.counter}}" value="c">
+          <label class="form-check-label" for="option3{{forloop.counter}}">
+            {{q.option_3}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="option{{forloop.counter}}" id="option4{{forloop.counter}}" value="d">
+          <label class="form-check-label" for="option4{{forloop.counter}}">
+            {{q.option_4}}
+          </label>
+        </div>
+      </form>
+      <div class="alert alert-success mt-3" role="alert" style="display: none;" id="solution{{forloop.counter}}">
+        <!-- Explanation will be provided here after submission -->
+      </div>
+      <div class="alert alert-info mt-3" role="alert" style="display: none;" id="explanation{{forloop.counter}}">
+       <strong>Explanation:</strong>  {{q.solution}}
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <button type="button" class="btn btn-primary" onclick="checkAnswer('{{q.correct_answer}}', {{forloop.counter}})">Submit</button>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function checkAnswer(correctAnswer, questionNumber) {
+    var selectedOption = document.querySelector('input[name="option' + questionNumber + '"]:checked');
+    var solution = document.getElementById('solution' + questionNumber);
+    var explanation = document.getElementById('explanation' + questionNumber);
+    var options = document.querySelectorAll('input[name="option' + questionNumber + '"]');
+
+    if (!selectedOption) {
+      alert('Please select an option!');
+      return;
+    }
+
+    // Show correct answer in green and user's answer in red if incorrect
+    options.forEach(function(option) {
+      if (option.value === correctAnswer) {
+        option.nextElementSibling.style.color = 'green';
+      } else if (option.checked) {
+        option.nextElementSibling.style.color = 'red';
+      }
+      option.disabled = true; // Disable options after submission
+    });
+
+    if (selectedOption.value === correctAnswer) {
+      solution.classList.remove('alert-danger');
+      solution.classList.add('alert-success');
+      solution.innerHTML = 'Correct Answer!';
+    } else {
+      solution.classList.remove('alert-success');
+      solution.classList.add('alert-danger');
+      solution.innerHTML = 'Incorrect Answer!';
+    }
+    solution.style.display = 'block';
+    explanation.style.display = 'block'; // Show explanation after submission
+  }
+</script>
+
+</body>
+</html>

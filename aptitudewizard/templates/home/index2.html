@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aptitude Wizard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Light blue background */
+      margin: 0;
+    }
+    .header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      z-index: 1000;
+    }
+    .section-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px; /* Adjusted margin to reduce space between header and sections */
+    }
+    .section {
+      padding: 30px;
+      border: 1px solid #007bff;
+      border-radius: 10px;
+      background-color: #ffffff; /* White background */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
+      text-decoration: none; /* Remove underline */
+      color: #333; /* Text color */
+      width: 80%; /* Adjust the width as needed */
+      max-width: 600px; /* Max width for better readability */
+      margin-bottom: 20px; /* Add margin between sections */
+    }
+    .section:hover {
+      transform: scale(1.05); /* Increase size on hover */
+      cursor: pointer; /* Change cursor to pointer */
+    }
+    .section.active {
+      background-color: #f0f8ff; /* Light blue background when active */
+    }
+    .section-title {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #007bff;
+    }
+    .section-content {
+      font-size: 16px;
+      color: #333;
+    }
+    /* Remove underline when clicked */
+    .section:focus, .section:hover, .section:active {
+      text-decoration: none;
+    }
+    .encouragement {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+      animation: pulse 2s infinite; /* Apply pulse animation */
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Aptitude Wizard Header -->
+<div class="header">
+  <h1>Aptitude Wizard</h1>
+  <p>Unlock your potential with our comprehensive aptitude test preparation platform. Start exploring now!</p>
+</div>
+
+<div class="section-container">
+
+  <!-- Simple Equations Section -->
+  <a href="simpleEquations/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Simple Equations</h2>
+      <p class="section-content">This section contains practice questions for simple equations.</p>
+    </div>
+  </a>
+
+  <!-- Ratio Proportion Variation Section -->
+  <a href="ratioProportionVariation/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Ratio Proportion Variation</h2>
+      <p class="section-content">This section contains practice questions for ratio, proportion, and variation.</p>
+    </div>
+  </a>
+
+  <!-- Numbers Section -->
+  <a href="numbers/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Numbers</h2>
+      <p class="section-content">This section contains practice questions for numbers.</p>
+    </div>
+  </a>
+
+  <!-- Percentage, Profit & Loss Section -->
+  <a href="percentageProfitLoss/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Percentage, Profit & Loss</h2>
+      <p class="section-content">This section contains practice questions for percentage, profit, and loss.</p>
+    </div>
+  </a>
+
+  <!-- Simple Interest & Compound Interest Section -->
+  <a href="simpleCompoundInterest/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Simple Interest & Compound Interest</h2>
+      <p class="section-content">This section contains practice questions for simple interest and compound interest.</p>
+    </div>
+  </a>
+
+  <!-- Averages, Mixtures & Alligations Section -->
+  <a href="averagesMixturesAlligations/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Averages, Mixtures & Alligations</h2>
+      <p class="section-content">This section contains practice questions for averages, mixtures, and alligations.</p>
+    </div>
+  </a>
+
+  <!-- Time and Work Section -->
+  <a href="timeWork/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Time and Work</h2>
+      <p class="section-content">This section contains practice questions for time and work.</p>
+    </div>
+  </a>
+
+  <!-- Time and Distance Section -->
+  <a href="timeDistance/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Time and Distance</h2>
+      <p class="section-content">This section contains practice questions for time and distance.</p>
+    </div>
+  </a>
+
+  <!-- Indices, Surds & Logarithms Section -->
+  <a href="indicesSurdsLogarithms/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Indices, Surds & Logarithms</h2>
+      <p class="section-content">This section contains practice questions for indices, surds, and logarithms.</p>
+    </div>
+  </a>
+
+  <!-- Quadratic Equations Section -->
+  <a href="quadraticEquations/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Quadratic Equations</h2>
+      <p class="section-content">This section contains practice questions for quadratic equations.</p>
+    </div>
+  </a>
+
+  <!-- Inequalities Section -->
+  <a href="inequalities/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Inequalities</h2>
+      <p class="section-content">This section contains practice questions for inequalities.</p>
+    </div>
+  </a>
+
+  <!-- Progressions Section -->
+  <a href="progressions/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Progressions</h2>
+      <p class="section-content">This section contains practice questions for progressions.</p>
+    </div>
+  </a>
+
+  <!-- Permutations & Combinations Section -->
+  <a href="permutationsCombinations/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Permutations & Combinations</h2>
+      <p class="section-content">This section contains practice questions for permutations and combinations.</p>
+    </div>
+  </a>
+
+  <!-- Data Interpretation Section -->
+  <a href="dataInterpretation/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Data Interpretation</h2>
+      <p class="section-content">This section contains practice questions for data interpretation.</p>
+    </div>
+  </a>
+
+</div>
+
+<!-- Encouragement Caption -->
+<div class="encouragement text-center">
+  You're one step closer to mastering aptitude tests. Keep practicing and never give up!
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // JavaScript to toggle active class on section click
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.addEventListener('click', () => {
+      sections.forEach(s => s.classList.remove('active'));
+      section.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Question Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      animation: fadeInUp 0.5s ease forwards;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mb-4 text-center">Create Question</h2>
+  <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="categorySelect" >Category:</label>
+      <select class="form-control" id="categorySelect" name="category" >
+        <optgroup label="Quantitative Aptitude">
+          <option value="simpleEquations">Simple Equations</option>
+          <option value="ratioProportionVariation">Ratio Proportion Variation</option>
+          <option value="numbers">Numbers</option>
+          <option value="percentageProfitLoss">Percentage, Profit & Loss</option>
+          <option value="simpleCompoundInterest">Simple Interest & Compound Interest</option>
+          <option value="averagesMixturesAlligations">Averages, Mixtures & Alligations</option>
+          <option value="timeWork">Time and Work</option>
+          <option value="timeDistance">Time and Distance</option>
+          <option value="indicesSurdsLogarithms">Indices, Surds & Logarithms</option>
+          <option value="quadraticEquations">Quadratic Equations</option>
+          <option value="inequalities">Inequalities</option>
+          <option value="progressions">Progressions</option>
+          <option value="permutationsCombinations">Permutations & Combinations</option>
+          <option value="dataInterpretation">Data Interpretation</option>
+        </optgroup>
+        <optgroup label="Logical Reasoning">
+          <option value="numberLetterSeries">Number and Letter Series</option>
+          <option value="analogies">Analogies</option>
+          <option value="oddManOut">Odd man Out</option>
+          <option value="codingDecoding">Coding and Decoding</option>
+          <option value="bloodRelations">Blood Relations</option>
+          <option value="vennDiagrams">Venn Diagrams</option>
+          <option value="seatingArrangements">Seating Arrangements</option>
+          <option value="puzzles">Puzzles</option>
+          <option value="clocksCalendars">Clocks and Calendars</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="questionTextarea">Question:</label>
+      <textarea name="question" class="form-control" id="questionTextarea" rows="3" style="border-color: #007bff;"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="optionsInput">Provide Options:</label>
+      <input name="option_1" type="text" class="form-control" id="option1" name="option1" placeholder="Option 1">
+      <input name="option_2" type="text" class="form-control" id="option2" name="option2" placeholder="Option 2">
+      <input name="option_3" type="text" class="form-control" id="option3" name="option3" placeholder="Option 3">
+      <input name="option_4" type="text" class="form-control" id="option4" name="option4" placeholder="Option 4">
+    </div>
+    <div class="form-group">
+      <label for="correctAnswerInput">Correct Answer:</label>
+      <input name="correct_answer" type="text" class="form-control" id="correctAnswerInput" name="correctAnswer">
+    </div>
+    <div class="form-group">
+      <label for="solutionTextarea">Solution:</label>
+      <textarea name="solution" class="form-control" id="solutionTextarea" rows="3" style="border-color: #007bff;"></textarea>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

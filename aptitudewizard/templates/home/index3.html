@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aptitude Wizard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Light blue background */
+      margin: 0;
+    }
+    .header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      z-index: 1000;
+    }
+    .encouragement {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+      animation: pulse 2s infinite; /* Apply pulse animation */
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .section-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px; /* Adjusted margin to create space below the header */
+    }
+    .section {
+      padding: 30px;
+      border: 1px solid #007bff;
+      border-radius: 10px;
+      background-color: #ffffff; /* White background */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
+      text-decoration: none; /* Remove underline */
+      color: #333; /* Text color */
+      width: 80%; /* Adjust the width as needed */
+      max-width: 600px; /* Max width for better readability */
+      margin-bottom: 20px; /* Add margin between sections */
+    }
+    .section:hover {
+      transform: scale(1.05); /* Increase size on hover */
+      cursor: pointer; /* Change cursor to pointer */
+    }
+    .section.active {
+      background-color: #f0f8ff; /* Light blue background when active */
+    }
+    .section-title {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #007bff;
+    }
+    .section-content {
+      font-size: 16px;
+      color: #333;
+    }
+    /* Remove underline when clicked */
+    .section:focus, .section:hover, .section:active {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Aptitude Wizard Header -->
+<div class="header">
+  <h1>Aptitude Wizard</h1>
+  <p>Unlock your potential with our comprehensive aptitude test preparation platform. Start exploring now!</p>
+</div>
+
+<div class="section-container">
+
+  <!-- Number and Letter Series Section -->
+  <a href="numberLetterSeries/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Number and Letter Series</h2>
+      <p class="section-content">This section contains practice questions for number and letter series.</p>
+    </div>
+  </a>
+
+  <!-- Analogies Section -->
+  <a href="analogies/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Analogies</h2>
+      <p class="section-content">This section contains practice questions for analogies.</p>
+    </div>
+  </a>
+
+  <!-- Odd man Out Section -->
+  <a href="oddManOut/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Odd man Out</h2>
+      <p class="section-content">This section contains practice questions for odd man out.</p>
+    </div>
+  </a>
+
+  <!-- Coding and Decoding Section -->
+  <a href="codingDecoding/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Coding and Decoding</h2>
+      <p class="section-content">This section contains practice questions for coding and decoding.</p>
+    </div>
+  </a>
+
+  <!-- Blood Relations Section -->
+  <a href="bloodRelations/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Blood Relations</h2>
+      <p class="section-content">This section contains practice questions for blood relations.</p>
+    </div>
+  </a>
+
+  <!-- Venn Diagrams Section -->
+  <a href="vennDiagrams/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Venn Diagrams</h2>
+      <p class="section-content">This section contains practice questions for Venn diagrams.</p>
+    </div>
+  </a>
+
+  <!-- Seating Arrangements Section -->
+  <a href="seatingArrangements/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Seating Arrangements</h2>
+      <p class="section-content">This section contains practice questions for seating arrangements.</p>
+    </div>
+  </a>
+
+  <!-- Puzzles Section -->
+  <a href="puzzles/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Puzzles</h2>
+      <p class="section-content">This section contains practice questions for puzzles.</p>
+    </div>
+  </a>
+
+  <!-- Clocks and Calendars Section -->
+  <a href="clocksCalendars/" class="section bg-light">
+    <div>
+      <h2 class="section-title">Clocks and Calendars</h2>
+      <p class="section-content">This section contains practice questions for clocks and calendars.</p>
+    </div>
+  </a>
+
+</div>
+
+<!-- Encouragement Caption -->
+<div class="encouragement text-center">
+  You're one step closer to mastering aptitude tests. Keep practicing and never give up!
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // JavaScript to toggle active class on section click
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.addEventListener('click', () => {
+      sections.forEach(s => s.classList.remove('active'));
+      section.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
