@@ -24,7 +24,7 @@ def login_page(request):
             login(request,user)
             return redirect('/')
 
-    return render(request,'home/login.html')
+    return render(request,'login.html')
 
 # View : Logout
 def logout_page(request):
@@ -58,23 +58,23 @@ def register_page(request):
 
         return redirect('/register/')
 
-    return render(request,'home/register.html')
+    return render(request,'register.html')
 
 def Home(request):
-    return render(request,'home/index1.html')
+    return render(request,'index1.html')
 
 @login_required(login_url="/login/")
 def Quantitative_Aptitude(request):
-    return render(request,'home/index2.html')
+    return render(request,'index2.html')
 
 @login_required(login_url="/login/")
 def Logical_Reasoning(request):
-    return render(request,'home/index3.html')
+    return render(request,'index3.html')
 
 @login_required(login_url="/login/")
 def Questions(request,category):
     context = {'question':Question.objects.all().filter(category=category)}
-    return render(request,'home/questions.html',context)
+    return render(request,'questions.html',context)
 
 @login_required(login_url="/login/")
 def AddQuestions(request):
@@ -91,5 +91,5 @@ def AddQuestions(request):
             solution = data.get('solution')
         )
         return redirect('/add-question/')
-    return render(request,'home/addquestion.html')
+    return render(request,'addquestion.html')
 
